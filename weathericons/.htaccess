@@ -1,0 +1,21 @@
+RewriteEngine On
+
+#RewriteRule 00.gif$ $1sunny.png [L]
+RewriteRule (.*)0[01].gif$ $1clear.png [L]
+RewriteRule (.*)0[23].gif$ $1few-clouds.png [L]
+RewriteRule (.*)0[67].gif$ $1showers-scattered-day.png [L]
+RewriteRule (.*)08.gif$ $1snow-scattered.png [L]
+RewriteRule (.*)09.gif$ $1showers.png [L]
+RewriteRule (.*)10.gif$ $1clouds.png [L]
+RewriteRule (.*)1[123].gif$ $1showers.png [L]
+RewriteRule (.*)1[67].gif$ $1snow-scattered.png [L]
+RewriteRule (.*)18.gif$ $1snow.png [L]
+RewriteRule (.*)19.gif$ $1storm.png [L]
+RewriteRule (.*)2[0124].gif$ $1clouds-night.png [L]
+RewriteRule (.*)28.gif$ $1showers-scattered-night.png [L]
+RewriteRule (.*)3[01].gif$ $1clear-night.png [L]
+RewriteRule (.*)32.gif$ $1few-clouds-night.png [L]
+RewriteRule (.*)33.gif$ $1clouds-night.png [L]
+RewriteRule (.*)36.gif$ $1showers-scattered-night.png [L]
+# Else, go to WeatherOffice
+RewriteRule ([0-9])([0-9]).gif$ http://www.weatheroffice.gc.ca/weathericons/$1$2.gif [L,R=301]

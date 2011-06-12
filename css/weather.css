@@ -1,0 +1,229 @@
+/* Based on http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+sup {vertical-align:super;}
+sub {vertical-align:sub;}
+sup,sup {line-height:1;font-size:.5em;}
+
+body {
+	font: 1em/1.5 sans-serif;
+}
+
+/*===== Layout =====*/
+html {
+	background-color:#000;
+}
+body {
+	padding:10px;
+	width:300px;
+	margin:0 auto;
+	background-color:#f9f9f9;
+	color:#333;
+}
+#mainContent {
+	
+}
+#currentimg {
+	width:128px;
+	height:128px;
+	float:left;
+	margin:0 16px 0 0;
+}
+#forecastData {
+	clear:both;
+}
+#currentcond, .cityfbox, #data {
+	background-color:#fff;
+	border:1px solid #ddd;
+	-webkit-border-radius:6px;
+	   -moz-border-radius:6px;
+	        border-radius:6px;
+	margin:10px 0 20px;
+	padding:10px;
+	position:relative;
+	overflow:hidden;
+	-webkit-transition:.5s height ease;
+	   -moz-transition:.5s height ease;
+	     -o-transition:.5s height ease;
+	        transition:.5s height ease;
+}
+.cityfbox {
+	text-align:center;
+	padding:10px 0;
+}
+#current-time {
+	position:absolute;
+	right:6px;
+	bottom:3px;
+	font-size:12px;
+}
+.fperiod {
+	display:inline-block;
+	width:29%;
+	margin:0 1.5% 1em 1.5%;
+	vertical-align:top;
+	height:7.5em;
+}
+.fdetails {
+	padding:10px;
+	text-align:left;
+	border-top:1px solid #ddd;
+}
+.fdetails dd, .fdetails dt {
+	width:45%;
+}
+.fdetails dd:nth-of-type(odd), .fdetails dt:nth-of-type(odd) {
+	float:left;
+	clear:left;
+}
+.fdetails dd:nth-of-type(even), .fdetails dt:nth-of-type(even) {
+	float:right;
+}
+.fdetails dt:nth-of-type(even) {
+	margin:-1.5em 0 0;
+}
+.fdetails dd:nth-of-type(odd) {
+	margin:0 0 1em;
+}
+#data > dl {
+	width:45%;
+	float:left;
+	font-size:.75em;
+	margin-bottom:1.5em;
+}
+#data > .middleCol {
+	float:right;
+}
+#data > .rightCol {
+	clear:left;
+}
+#data dt {
+	width:40%;
+	float:left;
+	clear:left;
+}
+.fperiod .high:not(:empty) + .low:not(:empty):before {
+	content: "/ ";
+	opacity:.5;
+}
+#expander {
+	margin:-20px 30% 20px;
+	background-color:#ddd;
+	background-image:-moz-linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
+	background-image:-ms-linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
+	background-image:-webkit-linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,.75)), to(rgba(255,255,255,0)));
+	background-image:linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
+	text-align:center;
+	text-shadow:1px 1px 0 rgba(255,255,255,.5);
+	border:1px solid #ddd;
+	border-top-width:0;
+	-moz-border-radius:0 0 6px 6px;
+	-webkit-border-top-left-radius:0;
+	-webkit-border-top-right-radius:0;
+	-webkit-border-bottom-left-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	border-radius:0 0 6px 6px;
+	font-size:.875em;
+}
+
+
+/*===== Typography =====*/
+a {
+	text-decoration:none;
+	color:inherit;
+}
+h1 {
+	font-size:1.5em;
+	line-height:1;
+	text-align:center;
+	font-weight:200;
+	margin:-10px -10px 0;
+	padding:10px;
+	text-shadow:-1px -1px 0 rgba(0,0,0,.5);
+	background-color:#3F3726;
+	color:#fff;
+	background-image:-moz-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
+	background-image:-ms-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
+	background-image:-webkit-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,.5)), to(rgba(255,255,255,0)));
+	background-image:linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
+}
+.fperiod h3 {
+	font-weight:300;
+	text-transform:uppercase;
+	letter-spacing:.05em;
+	font-size:.875em;
+}
+.temperature {
+	font-size:2em;
+	font-weight:300;
+}
+#cityobserved, #citycondition {
+	font-size:.875em;
+}
+.fperiod > ul {
+	font-size:.75em;
+}
+.fperiod .high, .fperiod .low {
+	display:inline;
+}
+.fissued {
+	margin:0 0 1em;
+}
+.fdetails {
+	font-size:.75em;
+}
+.fdetails dt, #data .colHeading {
+	font-weight:bold;
+	font-size:1.167em;
+	float:none;
+}
+.fperiod img {
+	font-size:.75em;
+	font-style:italic;
+}
+#spinner {
+	margin: 10px auto;
+	height: 100px;
+	width: 100px;
+	text-indent: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	background: url(../img/spinner.png);
+	-webkit-animation-name: spinnerRotate;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes spinnerRotate {
+	from {
+		-webkit-transform:rotate(0deg);
+	}
+	to {
+		-webkit-transform:rotate(360deg);
+	}
+}
+
+
+/*===== Kill it =====*/
+.toprow,
+#cityobserved dl > *, 
+.dd1,
+.leftList > .leftCol > *,
+.rightList > .rightCol > *,
+.leftList.footer, .rightList.footer {
+	display:none;
+}
+/*===== Restore It =====*/
+.leftList > .leftCol > dd:first-of-type,
+/*#cityobserved dl > dd:last-of-type,*/
+.rightList > .rightCol > .longContent {
+	display:block;
+}
