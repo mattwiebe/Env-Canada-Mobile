@@ -104,3 +104,9 @@ jQuery(document).ready(function($){
 	}
 	
 });
+
+if ( window.applicationCache ) {
+	window.applicationCache.addEventListener('updateready', function(){
+		window.applicationCache.swapCache();
+	}, false);
+}
