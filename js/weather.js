@@ -1,10 +1,48 @@
 jQuery(document).ready(function($){
-	$("#spinner").show();
-	$.get("/proxy/proxy.php?mode=native&url=http://www.weatheroffice.gc.ca/city/pages/mb-38_metric_e.html", function(data){
+	var spinner = $("#spinner"),
+		proxyBase = "/proxy/proxy.php?mode=native&url=",
+		ecBase = 'http://www.weatheroffice.gc.ca';
+	spinner.show();
+	$.get(proxyBase + "http://www.weatheroffice.gc.ca/city/pages/mb-38_metric_e.html", function(data){
 		$(data).find("#mainContent").appendTo("body");
+		maybeWarning(data);
 		tweaks();
-		$("#spinner").hide();
+		spinner.hide();
 	});
+	
+	function maybeWarning(data) {
+		var dataWrap = $(data),
+			notice,
+			watch = dataWrap.find("#watch"),
+			warning = dataWrap.find("#warning"),
+			ended = dataWrap.find("#end");
+			
+		notice = (watch.length) ? watch : (warning.length) ? warning : (ended.length) ? ended : false;
+		
+		if ( notice ) {
+			notice.addClass("box info").insertBefore("#mainContent");
+			notice.find("a").click(function(ev) {
+				ev.preventDefault();
+				var self = $(this),
+					url = self.attr("href");
+				if ( ! self.hasClass("clicked") ) {
+					spinner.show();
+					$.get(proxyBase + ecBase + url, function(data){
+						var info = $(data).find(".width600");
+						info.hide().appendTo(notice).slideDown(300);
+						spinner.hide();
+					});
+				}
+				else {
+					var showHide = self.parent().next();
+					showHide.slideToggle(300);
+				}
+
+				self.addClass("clicked");
+				
+			});
+		}
+	}
 	
 	function tweaks() {
 		

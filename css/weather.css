@@ -40,7 +40,7 @@ body {
 #forecastData {
 	clear:both;
 }
-#currentcond, .cityfbox, #data {
+#currentcond, .cityfbox, #data, .box {
 	background-color:#fff;
 	border:1px solid #ddd;
 	-webkit-border-radius:6px;
@@ -138,9 +138,41 @@ body {
 #cityinner {
 	overflow:hidden;
 }
-
+#watch.box {
+	background-color:#f5f77c;
+	border-color:#E2E34C;
+}
+#warning.box {
+	background-color:#d70300;
+	border-color:#d70300;
+	color:#fff;
+}
+#ended.box {
+	background-color:#6ddd73;
+	border-color:#81b384;
+}
+.info h2 a {
+	display:block;
+	margin:-10px;
+	padding:10px;
+	background-image:-moz-linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
+	background-image:-ms-linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
+	background-image:-webkit-linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,.75)), to(rgba(255,255,255,0)));
+	background-image:linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
+}
+.width600 {
+	margin-top:1em;
+	border-top:1px solid rgba(0,0,0,.2);
+	padding-top:1em;
+	font-size:.875em;
+}
 
 /*===== Typography =====*/
+.info > h2 {
+	text-align:center;
+	font-weight:bold;
+}
 a {
 	text-decoration:none;
 	color:inherit;
@@ -236,7 +268,8 @@ h1 {
 .dd1,
 .leftList > .leftCol > *,
 .rightList > .rightCol > *,
-.leftList.footer, .rightList.footer {
+.leftList.footer, .rightList.footer,
+.width600 h2 {
 	display:none;
 }
 /*===== Restore It =====*/
