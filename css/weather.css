@@ -34,6 +34,9 @@ body {
 	float:left;
 	margin:0 16px 0 0;
 }
+#currentimg.noConditionIcon {
+	background:url(/img/weather-none-available.png) no-repeat;
+}
 #forecastData {
 	clear:both;
 }

@@ -7,12 +7,21 @@ jQuery(document).ready(function($){
 	});
 	
 	function tweaks() {
+		
 		var mainImage = $("#currentimg"),
-			mainImageSrc = mainImage.attr("src").replace('weathericons', 'weathericons/large'),
+			mainImageSrc,
 			datetime = $("#cityobserved dd:last");
 			currentTime = datetime.text().split(/ [A-Z][DS]T\b/)[0];
 			units = $(".temperature sup");
-		mainImage.attr("src", mainImageSrc);
+
+		if ( mainImage.length ) {
+			mainImageSrc = mainImage.attr("src").replace('weathericons', 'weathericons/large');
+			mainImage.attr("src", mainImageSrc);
+		}
+		else {
+			$(".noConditionIcon").attr("id", "currentimg");
+		}
+
 		datetime.attr("id", "current-time").show().text(currentTime);
 		units.text(units.text());
 		$(".dd2, .nodata, .spacer").remove();

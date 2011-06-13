@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#rev 13
+#rev 14
 
 /js/jquery-1.5.2.min.js
 /js/weather.js
@@ -10,6 +10,7 @@ CACHE MANIFEST
 /apple-touch-icon-precomposed.png
 
 /img/spinner.png
+/img/weather-none-available.png
 /weathericons/00.gif
 /weathericons/01.gif
 /weathericons/02.gif
