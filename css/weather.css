@@ -307,4 +307,7 @@ h1 {
 	.fperiodlast {
 		display:none;
 	}
+	.info > h2, .width600 {
+		font-size:.75em;
+	}
 }
