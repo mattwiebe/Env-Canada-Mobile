@@ -110,6 +110,7 @@ body {
 .fperiod .high:not(:empty) + .low:not(:empty):before {
 	content: "/ ";
 	opacity:.5;
+	color:#000;
 }
 #expander {
 	margin:-20px 30% 20px;
@@ -131,6 +132,9 @@ body {
 	border-radius:0 0 6px 6px;
 	font-size:.875em;
 }
+#cityinner {
+	overflow:hidden;
+}
 
 
 /*===== Typography =====*/
@@ -146,13 +150,18 @@ h1 {
 	margin:-10px -10px 0;
 	padding:10px;
 	text-shadow:-1px -1px 0 rgba(0,0,0,.5);
-	background-color:#3F3726;
+	background-color:#4F452F;
 	color:#fff;
 	background-image:-moz-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
 	background-image:-ms-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
 	background-image:-webkit-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
 	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,.5)), to(rgba(255,255,255,0)));
 	background-image:linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
+	-webkit-box-shadow:0px 1px 2px rgba(0,0,0,.5);
+	   -moz-box-shadow:0px 1px 2px rgba(0,0,0,.5);
+	        box-shadow:0px 1px 2px rgba(0,0,0,.5);
+	border-bottom:1px solid #000;
+	
 }
 .fperiod h3 {
 	font-weight:300;
@@ -201,6 +210,12 @@ h1 {
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
 }
+.fperiod .high {
+	color:#ac0003;
+}
+.fperiod .low {
+	color:#003f92;
+}
 
 @-webkit-keyframes spinnerRotate {
 	from {
@@ -226,4 +241,34 @@ h1 {
 /*#cityobserved dl > dd:last-of-type,*/
 .rightList > .rightCol > .longContent {
 	display:block;
+}
+
+@media screen and (orientation:landscape) {
+	body {
+		width:460px;
+	}
+	.fperiod {
+		width:21.179%;
+	}
+	h1 {
+		padding:5px;
+		font-size:1.2em;
+	}
+	#currentimg {
+		margin-right:50px;
+	}
+	#currentcond {
+		padding:10px 50px;
+	}
+	#data dl {
+		float:left !important;
+		clear:none !important;
+		width:27%;
+		margin-left:6%;
+	}
+}
+@media screen and (orientation:portrait) {
+	.fperiodlast {
+		display:none;
+	}
 }

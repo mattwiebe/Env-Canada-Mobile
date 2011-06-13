@@ -28,7 +28,6 @@ jQuery(document).ready(function($){
 			self.html(replaced);
 		});
 	}
-
 	
 	function expander() {
 		var el = $("#cityf"),
@@ -36,17 +35,19 @@ jQuery(document).ready(function($){
 			height = firstItem.height();
 			expander = $("<div id='expander'></div>"),
 			moreText = '↓ More',
-			lessText = '↑ Less';
-		
-		el.data('originalHeight', el.height() );
+			lessText = '↑ Less',
+			innerID = 'cityinner';
+
 		el.data("shortHeight", height);
+		
+		el.wrapInner('<div id="cityinner"></div>');
 		
 		expander.text(moreText).click(function() {
 			var self = $(this),
 				currentHeight = el.height(),
 				shortHeight = el.data("shortHeight"),
-				tallHeight = el.data("originalHeight");
-				targetHeight = ( currentHeight == tallHeight ) ? shortHeight : tallHeight;
+				tallHeight = $("#"+innerID).height();
+				targetHeight = ( currentHeight == shortHeight ) ? tallHeight : shortHeight;
 				text = ( self.text() === moreText ) ? lessText : moreText;
 			el.height(targetHeight);
 			self.text(text);
