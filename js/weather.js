@@ -1,14 +1,37 @@
-jQuery(document).ready(function($){
-	var spinner = $("#spinner"),
-		proxyBase = "/proxy/proxy.php?mode=native&url=",
+(function($){
+	//var spinner = $("#spinner");
+	var proxyBase = "/proxy/proxy.php?mode=native&url=",
 		ecBase = 'http://www.weatheroffice.gc.ca';
-	spinner.show();
-	$.get(proxyBase + "http://www.weatheroffice.gc.ca/city/pages/mb-38_metric_e.html", function(data){
-		$(data).find("#mainContent").appendTo("body");
-		maybeWarning(data);
-		tweaks();
-		spinner.hide();
-	});
+
+	$(document).ready(getWeather);
+
+	function spinner(arg) {
+		$("#spinner")[arg]();
+	}
+	
+	function getWeather() {
+		spinner("show");
+		$.get(proxyBase + "http://www.weatheroffice.gc.ca/city/pages/mb-38_metric_e.html", function(data){
+			spinner("hide");
+			showRefreshButton();
+			$(data).find("#mainContent").appendTo("body");
+			maybeWarning(data);
+			tweaks();
+		});
+	}
+	
+	
+	function showRefreshButton() {
+		var button = $('<div id="refresh"></div>'),
+			target = $("body > h1");
+		button.click(function() {
+			var t = $(this),
+				content = $("#mainContent");
+			content.fadeOut().remove();
+			getWeather();
+			t.remove();
+		}).appendTo(target);
+	}
 	
 	function maybeWarning(data) {
 		var dataWrap = $(data),
@@ -26,11 +49,11 @@ jQuery(document).ready(function($){
 				var self = $(this),
 					url = self.attr("href");
 				if ( ! self.hasClass("clicked") ) {
-					spinner.show();
+					spinner("show");
 					$.get(proxyBase + ecBase + url, function(data){
 						var info = $(data).find(".width600");
 						info.hide().appendTo(notice).slideDown(300);
-						spinner.hide();
+						spinner("hide");
 					});
 				}
 				else {
@@ -45,7 +68,6 @@ jQuery(document).ready(function($){
 	}
 	
 	function tweaks() {
-		
 		var mainImage = $("#currentimg"),
 			mainImageSrc,
 			datetime = $("#cityobserved dd:last");
@@ -59,14 +81,14 @@ jQuery(document).ready(function($){
 		else {
 			$(".noConditionIcon").attr("id", "currentimg");
 		}
-
 		datetime.attr("id", "current-time").show().text(currentTime);
 		units.text(units.text());
 		$(".dd2, .nodata, .spacer").remove();
 		celciusWrapper();
-		expander();
+		makeExpander();
 	}
 	function celciusWrapper() {
+		console.log("celcius");
 		var els = $("#cityf").find(".low, .high");
 		els.each(function(index) {
 			var self = $(this),
@@ -76,7 +98,7 @@ jQuery(document).ready(function($){
 		});
 	}
 	
-	function expander() {
+	function makeExpander() {
 		var el = $("#cityf"),
 			firstItem = el.find(".fperiod:first");
 			height = firstItem.height();
@@ -86,9 +108,8 @@ jQuery(document).ready(function($){
 			innerID = 'cityinner';
 
 		el.data("shortHeight", height);
-		
 		el.wrapInner('<div id="cityinner"></div>');
-		
+
 		expander.text(moreText).click(function() {
 			var self = $(this),
 				currentHeight = el.height(),
@@ -96,14 +117,14 @@ jQuery(document).ready(function($){
 				tallHeight = $("#"+innerID).height();
 				targetHeight = ( currentHeight == shortHeight ) ? tallHeight : shortHeight;
 				text = ( self.text() === moreText ) ? lessText : moreText;
+
 			el.height(targetHeight);
 			self.text(text);
 		});
 		
 		el.height(height).after(expander);
 	}
-	
-});
+})(jQuery);
 
 if ( window.applicationCache ) {
 	window.applicationCache.addEventListener('updateready', function(){

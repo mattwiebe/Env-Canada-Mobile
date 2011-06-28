@@ -1,14 +1,17 @@
 <!DOCTYPE HTML>
-<html><head>
+<html manifest="/cache.manifest"><head>
 	<meta charset="UTF-8">
 	<title>Winnipeg Weather</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0" />
+	<meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
 	<link href="/css/weather.css" rel="stylesheet">
 	<script src="/js/jquery-1.5.2.min.js"></script>
 	<script src="/js/weather.js"></script>
 </head>
 <body>
 	<h1>Winnipeg Weather</h1>
+	<div id="spinner" style="display: none;"></div>
 
 <div id="mainContent">
           <div id="conditionscontainer">
@@ -34,9 +37,9 @@
             </div>
             <div class="gecko-fix-right"></div>
             <div id="currentcond">
-              <div id="currentcond-left"><img title="Partly Cloudy" alt="Partly Cloudy" src="/weathericons/02.gif" id="currentimg"><div>
-                  <p class="temperature">23<sup>
-                      <a title="Convert to Imperial Units" href="/forecast/city_e.html?mb-38&amp;unit=i">°C</a>
+              <div id="currentcond-left"><img title="Mainly Sunny" alt="Mainly Sunny" src="/weathericons/large/01.gif" id="currentimg"><div>
+                  <p class="temperature">15<sup>
+                      °C
                     </sup>
                   </p>
                 </div>
@@ -47,7 +50,7 @@
                     <dt>Observed at: </dt>
                     <dd>Winnipeg Richardson Int'l Airport</dd>
                     <dt>Date: </dt>
-                    <dd>1:00 PM CDT Sunday 12 June 2011</dd>
+                    <dd id="current-time" style="display: block;">9:00 AM</dd>
                   </dl>
                 </div>
                 <div id="citycondition">
@@ -55,13 +58,13 @@
                     <li class="leftList">
                       <dl class="leftCol">
                         <dt>Condition:</dt>
-                        <dd>Partly Cloudy</dd>
+                        <dd>Mainly Sunny</dd>
                         <dd class="dd1">&nbsp;</dd>
                         <dt>Pressure:</dt>
-                        <dd>101.6&nbsp;kPa</dd>
+                        <dd>101.9&nbsp;kPa</dd>
                         <dd class="dd1">&nbsp;</dd>
                         <dt>Tendency:</dt>
-                        <dd>falling</dd>
+                        <dd>rising</dd>
                         <dd class="dd1">&nbsp;</dd>
                         <dd class="dd1">&nbsp;</dd>
                         <dt>Visibility:</dt>
@@ -70,22 +73,22 @@
                         <dt>
                           <a title="Air Quality Health Index" href="/airquality/pages/mbaq-001_e.html">Air Quality Health Index:</a>
                         </dt>
-                        <dd>3</dd>
+                        <dd>2</dd>
                         <dd class="dd1">&nbsp;</dd> </dl>
                     </li>
                     <li class="rightList">
                       <dl class="rightCol">
                         <dt>Temperature:</dt>
-                        <dd>22.7°C</dd>
+                        <dd>14.7°C</dd>
                         <dd class="dd1">&nbsp;</dd>
                         <dt>Dewpoint:</dt>
-                        <dd>9.2°C</dd>
+                        <dd>10.6°C</dd>
                         <dd class="dd1">&nbsp;</dd>
                         <dt>Humidity:</dt>
-                        <dd>42 %</dd>
+                        <dd>76 %</dd>
                         <dd class="dd1">&nbsp;</dd>
                         <dt>Wind:</dt>
-                        <dd class="longContent">SSE 33  gust 45 km/h</dd>
+                        <dd class="longContent">SSE 11 km/h</dd>
                         <dd class="dd1">&nbsp;</dd>
                       </dl>
                     </li>
@@ -119,105 +122,105 @@
               <div class="middleCol">&nbsp;</div>
             </div>
             <div class="gecko-fix-both"></div>
-            <div class="cityfbox" id="cityf">
+            <div class="cityfbox" id="cityf" style="height: 120px;"><div id="cityinner">
               <div class="fperiod">
-                <h3>Today</h3><img title="Increasing clouds" alt="Increasing clouds" longdesc="#f1" src="/weathericons/04.gif"><ul>
-                  <li title="High" class="high">22°C</li>
-                  <li class="low">&nbsp;</li>
+                <h3>Today</h3><img title="Sunny" alt="Sunny" longdesc="#f1" src="/weathericons/00.gif"><ul>
+                  <li title="High" class="high">22<sup>°C</sup></li>
+                  <li class="low"></li>
                   <li class="pop">&nbsp;</li>
-                </ul>
-              </div>
-              <div class="fperiod">
-                <h3>
-                  <abbr><span title="Monday" class="abbr">Mon</span></abbr>
-                </h3><img title="Showers" alt="Showers" longdesc="#f3" src="/weathericons/19.gif"><ul>
-                  <li title="High" class="high">20°C</li>
-                  <li title="Low" class="low">13°C</li>
-                  <li class="pop">&nbsp;</li>
-                </ul>
-              </div>
-              <div class="fperiod">
-                <h3>
-                  <abbr><span title="Tuesday" class="abbr">Tue</span></abbr>
-                </h3><img title="Chance of showers" alt="Chance of showers" longdesc="#f4" src="/weathericons/06.gif"><ul>
-                  <li title="High" class="high">26°C</li>
-                  <li title="Low" class="low">16°C</li>
-                  <li title="Pop" class="pop"> 40%</li>
                 </ul>
               </div>
               <div class="fperiod">
                 <h3>
                   <abbr><span title="Wednesday" class="abbr">Wed</span></abbr>
-                </h3><img title="Chance of showers" alt="Chance of showers" longdesc="#f5" src="/weathericons/06.gif"><ul>
-                  <li title="High" class="high">25°C</li>
-                  <li title="Low" class="low">15°C</li>
+                </h3><img title="Chance of showers" alt="Chance of showers" longdesc="#f3" src="/weathericons/09.gif"><ul>
+                  <li title="High" class="high">29<sup>°C</sup></li>
+                  <li title="Low" class="low">15<sup>°C</sup></li>
                   <li title="Pop" class="pop"> 30%</li>
                 </ul>
               </div>
               <div class="fperiod">
                 <h3>
                   <abbr><span title="Thursday" class="abbr">Thu</span></abbr>
-                </h3><img title="Sunny" alt="Sunny" longdesc="#f6" src="/weathericons/00.gif"><ul>
-                  <li title="High" class="high">25°C</li>
-                  <li title="Low" class="low">14°C</li>
+                </h3><img title="A mix of sun and cloud" alt="A mix of sun and cloud" longdesc="#f4" src="/weathericons/02.gif"><ul>
+                  <li title="High" class="high">31<sup>°C</sup></li>
+                  <li title="Low" class="low">22<sup>°C</sup></li>
                   <li class="pop">&nbsp;</li>
                 </ul>
               </div>
               <div class="fperiod">
                 <h3>
                   <abbr><span title="Friday" class="abbr">Fri</span></abbr>
+                </h3><img title="Chance of showers" alt="Chance of showers" longdesc="#f5" src="/weathericons/06.gif"><ul>
+                  <li title="High" class="high">25<sup>°C</sup></li>
+                  <li title="Low" class="low">19<sup>°C</sup></li>
+                  <li title="Pop" class="pop"> 40%</li>
+                </ul>
+              </div>
+              <div class="fperiod">
+                <h3>
+                  <abbr><span title="Saturday" class="abbr">Sat</span></abbr>
+                </h3><img title="Sunny" alt="Sunny" longdesc="#f6" src="/weathericons/00.gif"><ul>
+                  <li title="High" class="high">28<sup>°C</sup></li>
+                  <li title="Low" class="low">14<sup>°C</sup></li>
+                  <li class="pop">&nbsp;</li>
+                </ul>
+              </div>
+              <div class="fperiod">
+                <h3>
+                  <abbr><span title="Sunday" class="abbr">Sun</span></abbr>
                 </h3><img title="Sunny" alt="Sunny" longdesc="#f7" src="/weathericons/00.gif"><ul>
-                  <li title="High" class="high">25°C</li>
-                  <li title="Low" class="low">15°C</li>
+                  <li title="High" class="high">29<sup>°C</sup></li>
+                  <li title="Low" class="low">16<sup>°C</sup></li>
                   <li class="pop">&nbsp;</li>
                 </ul>
               </div>
               <div class="fperiod fperiodlast">
                 <h3>
-                  <abbr><span title="Saturday" class="abbr">Sat</span></abbr>
-                </h3><img title="A mix of sun and cloud" alt="A mix of sun and cloud" longdesc="#f8" src="/weathericons/02.gif"><ul>
-                  <li title="High" class="high">25°C</li>
-                  <li title="Low" class="low">16°C</li>
+                  <abbr><span title="Monday" class="abbr">Mon</span></abbr>
+                </h3><img title="Sunny" alt="Sunny" longdesc="#f8" src="/weathericons/00.gif"><ul>
+                  <li title="High" class="high">29<sup>°C</sup></li>
+                  <li title="Low" class="low">16<sup>°C</sup></li>
                   <li class="pop">&nbsp;</li>
                 </ul>
               </div>
               <div class="fdetails">
                 <div>
 <p class="fissued"><span class="section"><span class="bold">
-Issued :</span> 11:00 AM CDT Sunday 12 June 2011</span></p>
+Issued :</span> 5:00 AM CDT Tuesday 28 June 2011</span></p>
 
                 
                 <dl>
                   <dt>Today</dt>
-                  <dd>Increasing cloudiness this afternoon. Wind south 30 km/h. High 22. UV index 7 or high.</dd>
-                  <dd class="dd2">&nbsp;</dd>
+                  <dd>Sunny. Wind becoming south 20 km/h early this afternoon. High 22. UV index 8 or very high.</dd>
+                  
                   <dt>Tonight</dt>
-                  <dd>Cloudy with 40 percent chance of showers. Wind south 30 km/h. Low 13.</dd>
-                  <dd class="dd2">&nbsp;</dd>
-                  <dt>Monday</dt>
-                  <dd>Showers ending in the evening then a few clouds. Risk of a thunderstorm. Amount 5 to 10 mm. Wind southeast 40 km/h gusting to 60 becoming light late in the evening. High 20.</dd>
-                  <dd class="dd2">&nbsp;</dd>
-                  <dt>Tuesday</dt>
-                  <dd>A mix of sun and cloud with 40 percent chance of showers. Low 16. High 26.</dd>
-                  <dd class="dd2">&nbsp;</dd>
+                  <dd>A few clouds. Wind south 20 km/h. Low 15.</dd>
+                  
                   <dt>Wednesday</dt>
-                  <dd>A mix of sun and cloud with 30 percent chance of showers. Low 15. High 25.</dd>
-                  <dd class="dd2">&nbsp;</dd>
+                  <dd>Sunny in the morning then a mix of sun and cloud with 30 percent chance of showers in the evening. Risk of a thunderstorm in the evening. Hazy in the evening. Wind south 30 km/h. High 29.</dd>
+                  
                   <dt>Thursday</dt>
-                  <dd>Sunny. Low 14. High 25.</dd>
-                  <dd class="dd2">&nbsp;</dd>
+                  <dd>A mix of sun and cloud. Low 22. High 31.</dd>
+                  
                   <dt>Friday</dt>
-                  <dd>Sunny. Low 15. High 25.</dd>
-                  <dd class="dd2">&nbsp;</dd>
+                  <dd>A mix of sun and cloud with 40 percent chance of showers. Low 19. High 25.</dd>
+                  
                   <dt>Saturday</dt>
-                  <dd>A mix of sun and cloud. Low 16. High 25.</dd>
-                  <dd class="dd2">&nbsp;</dd>
+                  <dd>Sunny. Low 14. High 28.</dd>
+                  
+                  <dt>Sunday</dt>
+                  <dd>Sunny. Low 16. High 29.</dd>
+                  
+                  <dt>Monday</dt>
+                  <dd>Sunny. Low 16. High 29.</dd>
+                  
                 </dl>
                 
 </div>  <!-- fdetails -->
 
               </div>
-            </div>
+            </div></div><div id="expander">↓ More</div>
           </div>
           <div id="historicaldata">
             <div class="toprow">
@@ -242,41 +245,41 @@ Issued :</span> 11:00 AM CDT Sunday 12 June 2011</span></p>
             <div id="data">
               <dl class="leftCol borderRight">
                 <dt class="colHeading">Yesterday</dt>
-                <dd class="nodata">&nbsp;</dd>
+                
                 <dt>
                   <abbr><span title="Maximum" class="abbr">Max:</span></abbr>
                 </dt>
-                <dd>23.2°C</dd>
+                <dd>19.8°C</dd>
                 <dt>
                   <abbr><span title="Minimum" class="abbr">Min:</span></abbr>
                 </dt>
-                <dd>7.1°C</dd>
+                <dd>7.6°C</dd>
                 <dt>
                   <a title="Precipitation" href="/mainmenu/faq_e.html#weather1b">Precip:</a>
                 </dt>
                 <dd>0.0 mm</dd>
-                <dt class="spacer">&nbsp;</dt>
-                <dd class="spacer">&nbsp;</dd>
+                
+                
               </dl>
               <dl class="middleCol borderRight">
                 <dt class="colHeading">Normals</dt>
-                <dd class="nodata">&nbsp;</dd>
+                
                 <dt>
                   <abbr><span title="Maximum" class="abbr">Max:</span></abbr>
                 </dt>
-                <dd>23°C</dd>
+                <dd>25°C</dd>
                 <dt>
                   <abbr><span title="Minimum" class="abbr">Min:</span></abbr>
                 </dt>
-                <dd>11°C</dd>
+                <dd>13°C</dd>
               </dl>
               <dl class="rightCol borderRight">
                 <dt class="colHeading">Today</dt>
-                <dd class="nodata">&nbsp;</dd>
+                
                 <dt>Sunrise: </dt>
-                <dd>5:20</dd>
+                <dd>5:22</dd>
                 <dt>Sunset: </dt>
-                <dd>21:37</dd>
+                <dd>21:41</dd>
               </dl>
               <div class="gecko-fix-both"></div>
             </div>

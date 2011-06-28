@@ -87,7 +87,7 @@ body {
 .fdetails dd:nth-of-type(even), .fdetails dt:nth-of-type(even) {
 	float:right;
 }
-.fdetails dt:nth-of-type(even) {
+.fdetails dt:nth-of-type(2) {
 	margin:-1.5em 0 0;
 }
 .fdetails dd:nth-of-type(odd) {
@@ -160,6 +160,10 @@ body {
 	background-image:-webkit-linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
 	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,.75)), to(rgba(255,255,255,0)));
 	background-image:linear-gradient(top, rgba(255,255,255,.75), rgba(255,255,255,0));
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	border-radius:5px 5px 0 0;
 }
 .width600 {
 	margin-top:1em;
@@ -196,7 +200,7 @@ h1 {
 	   -moz-box-shadow:0px 1px 2px rgba(0,0,0,.5);
 	        box-shadow:0px 1px 2px rgba(0,0,0,.5);
 	border-bottom:1px solid #000;
-	
+	position:relative;
 }
 .fperiod h3 {
 	font-weight:300;
@@ -244,6 +248,10 @@ h1 {
 	-webkit-animation-duration: 1.5s;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
+	-moz-animation-name: spinnerRotate;
+	-moz-animation-duration: 1.5s;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
 }
 .fperiod .high {
 	color:#ac0003;
@@ -260,7 +268,28 @@ h1 {
 		-webkit-transform:rotate(360deg);
 	}
 }
+@-moz-keyframes spinnerRotate {
+	from {
+		-moz-transform:rotate(0deg);
+	}
+	to {
+		-moz-transform:rotate(360deg);
+	}
+}
 
+#refresh {
+	position:absolute;
+	right:8px;
+	top:8px;
+	width:24px;
+	height:26px;
+	background:url(../img/refresh.png) no-repeat center center;
+	-webkit-transform-origin:top right;
+	   -moz-transform-origin:top right;
+	    -ms-transform-origin:top right;
+	     -o-transform-origin:top right;
+	        transform-origin:top right;
+}
 
 /*===== Kill it =====*/
 .toprow,
@@ -301,6 +330,13 @@ h1 {
 		clear:none !important;
 		width:27%;
 		margin-left:6%;
+	}
+	#refresh {
+		-webkit-transform: scale(.75) translateY(-5px);
+		   -moz-transform: scale(.75) translateY(-5px);
+		    -ms-transform: scale(.75) translateY(-5px);
+		     -o-transform: scale(.75) translateY(-5px);
+		        transform: scale(.75) translateY(-5px);
 	}
 }
 @media screen and (orientation:portrait) {
