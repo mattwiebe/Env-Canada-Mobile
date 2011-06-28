@@ -1,5 +1,4 @@
 (function($){
-	//var spinner = $("#spinner");
 	var proxyBase = "/proxy/proxy.php?mode=native&url=",
 		ecBase = 'http://www.weatheroffice.gc.ca';
 
@@ -88,7 +87,6 @@
 		makeExpander();
 	}
 	function celciusWrapper() {
-		console.log("celcius");
 		var els = $("#cityf").find(".low, .high");
 		els.each(function(index) {
 			var self = $(this),

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#rev 22
+#rev 24
 
 /js/jquery-1.5.2.min.js
 /js/weather.js
@@ -66,27 +66,5 @@ CACHE MANIFEST
 /weathericons/large/33.gif
 /weathericons/large/36.gif
 
-http://www.weatheroffice.gc.ca/weathericons/04.gif
-http://www.weatheroffice.gc.ca/weathericons/05.gif
-http://www.weatheroffice.gc.ca/weathericons/14.gif
-http://www.weatheroffice.gc.ca/weathericons/15.gif
-http://www.weatheroffice.gc.ca/weathericons/23.gif
-http://www.weatheroffice.gc.ca/weathericons/25.gif
-http://www.weatheroffice.gc.ca/weathericons/26.gif
-http://www.weatheroffice.gc.ca/weathericons/27.gif
-http://www.weatheroffice.gc.ca/weathericons/29.gif
-http://www.weatheroffice.gc.ca/weathericons/34.gif
-http://www.weatheroffice.gc.ca/weathericons/35.gif
-http://www.weatheroffice.gc.ca/weathericons/37.gif
-http://www.weatheroffice.gc.ca/weathericons/38.gif
-http://www.weatheroffice.gc.ca/weathericons/39.gif
-http://www.weatheroffice.gc.ca/weathericons/40.gif
-http://www.weatheroffice.gc.ca/weathericons/41.gif
-http://www.weatheroffice.gc.ca/weathericons/42.gif
-http://www.weatheroffice.gc.ca/weathericons/43.gif
-http://www.weatheroffice.gc.ca/weathericons/44.gif
-http://www.weatheroffice.gc.ca/weathericons/45.gif
-
 NETWORK:
 /proxy/
-http://www.weatheroffice.gc.ca/weathericons/39.gif
