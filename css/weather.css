@@ -57,7 +57,7 @@ body {
 }
 .cityfbox {
 	text-align:center;
-	padding:10px 0;
+	padding:10px 0 0;
 }
 #current-time {
 	position:absolute;
@@ -86,9 +86,8 @@ body {
 }
 .fdetails dd:nth-of-type(even), .fdetails dt:nth-of-type(even) {
 	float:right;
-}
-.fdetails dt:nth-of-type(2) {
-	margin:-1.5em 0 0;
+	position:relative;
+	top:-1.5em;
 }
 .fdetails dd:nth-of-type(odd) {
 	margin:0 0 1em;
@@ -221,8 +220,11 @@ h1 {
 .fperiod .high, .fperiod .low {
 	display:inline;
 }
-.fissued {
+.fissued, .warningText {
 	margin:0 0 1em;
+}
+.warningText {
+	font-style:italic;
 }
 .fdetails {
 	font-size:.75em;
@@ -253,8 +255,12 @@ h1 {
 	-moz-animation-iteration-count: infinite;
 	-moz-animation-timing-function: linear;
 }
-.fperiod .high {
+.fperiod .high, .humidex {
 	color:#ac0003;
+}
+.humidex::before {
+	content: 'Humidex: ';
+	color:#333;
 }
 .fperiod .low {
 	color:#003f92;
@@ -304,7 +310,8 @@ h1 {
 /*===== Restore It =====*/
 .leftList > .leftCol > dd:first-of-type,
 /*#cityobserved dl > dd:last-of-type,*/
-.rightList > .rightCol > .longContent {
+.rightList > .rightCol > .longContent,
+.rightList > .rightCol > .humidex {
 	display:block;
 }
 
@@ -337,6 +344,9 @@ h1 {
 		    -ms-transform: scale(.75) translateY(-5px);
 		     -o-transform: scale(.75) translateY(-5px);
 		        transform: scale(.75) translateY(-5px);
+	}
+	.humidex {
+		
 	}
 }
 @media screen and (orientation:portrait) {

@@ -84,8 +84,14 @@
 		units.text(units.text());
 		$(".dd2, .nodata, .spacer").remove();
 		celciusWrapper();
+		maybeHumidex();
 		makeExpander();
 	}
+	
+	function maybeHumidex() {
+		$("a[href='/mainmenu/faq_e.html#weather4b']").parent().next().addClass("humidex");
+	}
+	
 	function celciusWrapper() {
 		var els = $("#cityf").find(".low, .high");
 		els.each(function(index) {
