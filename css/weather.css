@@ -89,6 +89,10 @@ body {
 	position:relative;
 	top:-1.5em;
 }
+.fdetails dd:nth-of-type(even)::after {
+	content: ' ';
+	display: block;
+}
 .fdetails dd:nth-of-type(odd) {
 	margin:0 0 1em;
 }
@@ -258,12 +262,21 @@ h1 {
 .fperiod .high, .humidex {
 	color:#ac0003;
 }
+.fperiod .low, .windchill {
+	color:#003f92;
+}
+.windchill, .humidex {
+	font-weight: bold;
+}
+.windchill::before, .humidex::before {
+	font-weight: normal;
+	color: #333;
+}
 .humidex::before {
 	content: 'Humidex: ';
-	color:#333;
 }
-.fperiod .low {
-	color:#003f92;
+.windchill::before {
+	content: 'Windchill: ';
 }
 
 @-webkit-keyframes spinnerRotate {
@@ -311,7 +324,8 @@ h1 {
 .leftList > .leftCol > dd:first-of-type,
 /*#cityobserved dl > dd:last-of-type,*/
 .rightList > .rightCol > .longContent,
-.rightList > .rightCol > .humidex {
+.rightList > .rightCol > .humidex,
+.rightList > .rightCol > .windchill {
 	display:block;
 }
 
@@ -344,9 +358,6 @@ h1 {
 		    -ms-transform: scale(.75) translateY(-5px);
 		     -o-transform: scale(.75) translateY(-5px);
 		        transform: scale(.75) translateY(-5px);
-	}
-	.humidex {
-		
 	}
 }
 @media screen and (orientation:portrait) {

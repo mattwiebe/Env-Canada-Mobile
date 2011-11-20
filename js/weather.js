@@ -85,6 +85,7 @@
 		$(".dd2, .nodata, .spacer").remove();
 		celciusWrapper();
 		maybeHumidex();
+		maybeWindChill();
 		makeExpander();
 	}
 	
@@ -100,6 +101,10 @@
 			replaced = text.replace('°C', '<sup>°C</sup>').replace("\240", "");
 			self.html(replaced);
 		});
+	}
+	
+	function maybeWindChill() {
+		$("a[href='/mainmenu/faq_e.html#weather2']").parent().next().addClass("windchill");
 	}
 	
 	function makeExpander() {

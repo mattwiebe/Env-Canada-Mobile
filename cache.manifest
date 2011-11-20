@@ -1,7 +1,7 @@
 CACHE MANIFEST
-#rev 25
+#rev 28
 
-/js/jquery-1.5.2.min.js
+/js/jquery-1.7.0.min.js
 /js/weather.js
 /css/weather.css
 
